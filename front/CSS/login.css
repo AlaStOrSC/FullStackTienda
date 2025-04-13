@@ -1,0 +1,143 @@
+/* ---- LOGIN ---- */
+
+.login__image {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+    opacity: 0.7;
+    z-index: -1;
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+.login {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.login__container {
+    background: rgba(50, 30, 20, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    z-index: 2;
+    display: grid;
+    gap: 1rem;
+}
+
+.login__title {
+    font-size: 2rem;
+    color: #ffd680;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.login__subtitle {
+    font-size: 1.2rem;
+    color: #d8b384;
+    margin-bottom: 1.5rem;
+}
+
+/* ---- LOGIN FORM ---- */
+
+.login__group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.login__label {
+    
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: #e0c097;
+}
+
+.login__input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #a67c52;
+    border-radius: 8px;
+    background: #2e1b15;
+    color: #e0c097;
+}
+
+.login__button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: #8b5e3b;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.login__button:hover {
+    background: #a67c52;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.login__link {
+    display: block;
+    margin-top: 1rem;
+    color: #ffd680;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.login__link:hover {
+    color: #fff;
+}
+
+/* ---- NAVBAR LOGIN ---- */
+.login__nav {
+    position: relative;
+    top: 90px; 
+}
+
+.login__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+
+.login__nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+/* -------  QUERIES ---------- */
+
+@media (min-width: 768px) {
+    .login__image{
+        width: 200%;
+        max-width: 200%;
+
+    }
+}
+@media (min-width: 1024px) {
+
+
+    .login__nav-link:hover {
+        color: #ffd680;
+    } 
+}
+
+/* ----LOGIN END---- */

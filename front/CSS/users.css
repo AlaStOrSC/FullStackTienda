@@ -1,0 +1,287 @@
+/* ----------------------------- ADMIN USERS PAGE ----------------------------- */
+
+/* Fondo para toda la sección */
+.admin__background {
+    background-image: url('../images/admin-users-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.admin__title {
+    font-size: 2.5rem;
+    color: #ffd680;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    margin-bottom: 2rem;
+    text-align: center;
+    justify-self: center;
+}
+
+.admin__background {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-items: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 60vh;
+}
+
+.admin__section {
+    background: rgba(50, 30, 20, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.admin__section:hover {
+    transform: scale(1.05);
+}
+
+.admin__subtitle {
+    font-size: 1.5rem;
+    color: #ffd680;
+    margin-bottom: 1rem;
+}
+
+.admin__button {
+    background: #8b5e3b;
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.admin__button:hover {
+    background: #a67c52;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+/* ----------------------------- MODAL USUARIOS ----------------------------- */
+.modalU {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: 1000;
+}
+
+.modal__content {
+    background: #2e1b15;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
+    text-align: center;
+    max-width: 100vw;  
+    max-height: 90vh; 
+    overflow: auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal__title {
+    color: #ffd680;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.modal__close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #ffd680;
+    cursor: pointer;
+}
+
+.modal__close:hover {
+    color: #ffac33;
+}
+
+/* ----- TABLA DENTRO DEL MODAL ----- */
+.modal__table-container {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-top: 10px;
+    max-width: 1500px;
+}
+
+.modal__table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ffd680;
+}
+
+.modal__table th, .modal__table td {
+    padding: 8px;
+    border-bottom: 1px solid #ffd680;
+    text-align: center;
+}
+
+.modal__table th {
+    background: #3e261c;
+    font-weight: bold;
+}
+
+.modal__table tr:hover {
+    background: rgba(255, 215, 0, 0.2);
+}
+
+td button {
+    background: transparent;
+    border: none;
+    color: #ffd680;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+}
+
+td button:hover {
+    background-color: #3e261c;
+    color: #ffac33;
+}
+
+.deleteBtn {
+    color: #ff6b6b;
+}
+
+.updateBtn {
+    color: #6b8e23;
+}
+
+/* ----------------------------- MODAL CREAR USUARIO ----------------------------- */
+.modalCreateUser {
+    display: none; 
+    align-items: center; 
+    justify-content: center;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: 1000; 
+}
+
+.modal__content-create {
+    background: rgba(50, 30, 20, 0.9); 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
+    text-align: center;
+    max-width: 600px;
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.modal__title-create {
+    color: #ffd680;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal__close-create {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #ffd680;
+    cursor: pointer;
+}
+
+.modal__close-create:hover {
+    color: #ffac33;
+}
+
+.modal__form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.modal__form-group label {
+    font-weight: bold;
+    color: #ffd680;
+    margin-bottom: 5px;
+}
+
+.modal__form-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ffd680;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffd680;
+}
+
+.modal__form-group input:focus {
+    outline: none;
+    border-color: #ffac33;
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.modal__submit-btn {
+    background: #8b5e3b;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.modal__submit-btn:hover {
+    background: #a67c52;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.logout-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #8b5e3b;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1000; 
+}
+
+.logout-btn:hover {
+    background: #a67c52;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}

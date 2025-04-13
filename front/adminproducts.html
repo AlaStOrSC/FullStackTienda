@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Productos</title>
+
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/adminProducts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="module" src="js/products.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <a class="header__logo" href="home.html"> <img src="images/kalandra.png" alt="Logo Kalandra"></a>
+                <nav class="header__nav" aria-label="Menú de navegación">
+                    <ul class="header__nav-list">
+                        <li class="header__nav-item"><a href="users.html" class="header__nav-link"><i class="fa-solid fa-user-shield"></i><span>Admin</span></a></li>
+                        <li class="header__nav-item"><a href="adminProducts.html" class="header__nav-link"><i class="fa-solid fa-user-shield"></i><span>AdminP</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <h1 class="admin__title">Administrador de Productos</h1>
+        <section class="main__background-admin">
+            
+ 
+            <div class="admin__section">
+                <h3 class="admin__subtitle">Crear Producto</h3>
+                <div id="createProductContainer" style="display: none;">
+                    <h3>Crear Producto</h3>
+                    <form id="createProductForm">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="nameC" name="nombre" required>
+                        
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" class="descripcionC" name="descripcion" required>
+                
+                        <label for="precio">Precio:</label>
+                        <input type="number" class="precioC" name="precio" step="0.01" required>
+                
+                        <label for="stock">Stock:</label>
+                        <input type="number" class="stockC" name="stock" required>
+                
+                        <label for="categoria">Categoría:</label>
+                        <input type="text" class="categoryC" name="categoria" required>
+                
+                        <label for="marca">Marca:</label>
+                        <input type="text" class="marcaC" name="marca" required>
+                
+                        <label for="codigoProducto">Código Producto:</label>
+                        <input type="text" class="codigoProductoC" name="codigoProducto" required>
+                
+                        <label for="fechaFabricacion">Fecha de Fabricación:</label>
+                        <input type="date" class="fechaFabricacionC" name="fechaFabricacion" required>
+                
+                        <label for="garantiaMeses">Garantía (meses):</label>
+                        <input type="number" class="garantiaC" name="garantiaMeses" required>
+                
+                        <label for="peso">Peso (kg):</label>
+                        <input type="number" class="pesoC" name="peso" step="0.01" required>
+                
+                        <h4>Dimensiones</h4>
+                        <label for="alto">Alto (cm):</label>
+                        <input type="number" class="altoC" name="dimensiones[alto]" required>
+                        
+                        <label for="ancho">Ancho (cm):</label>
+                        <input type="number" class="anchoC" name="dimensiones[ancho]" required>
+                        
+                        <label for="profundidad">Profundidad (cm):</label>
+                        <input type="number" class="profundidadC" name="dimensiones[profundidad]" required>
+                
+                        <label for="coloresDisponibles">Colores Disponibles:</label>
+                        <input type="text" class="coloresDisponiblesC" name="coloresDisponibles">
+                
+                        <label for="etiquetas">Etiquetas:</label>
+                        <input type="text" class="etiquetasC" name="etiquetas">
+                
+                        <label for="imagenes">Imágenes:</label>
+                        <input type="text" class="imagenesC" name="imagenes">
+                
+                        <label for="esActivo">¿Esta activo?</label>
+                        <select class="esActivoC" name="esActivo" required>
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                
+                        <button type="submit">Confirmar</button>
+                    </form>
+                </div>
+                
+                <button class="admin__button" id="createProductBtn">Crear</button>
+            </div>
+
+            <div class="admin__section">
+                <h3 class="admin__subtitle">Mostrar Todos los Productos</h3>
+                <button class="admin__button" id="showProductsBtn">Mostrar</button>
+            </div>
+        </section>
+
+        <div class="modalP" id="productsModal" style="display: none;">
+            <div class="modal__content">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="modal__title">Todos los Productos</h2>
+                    <span class="modal__close" id="closeModalBtn">&times;</span>
+                </div>
+                <div class="modal__table-container">
+                    <table class="modal__table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Categoría</th>
+                                <th>Marca</th>
+                                <th>Código</th>
+                                <th>Garantía</th>
+                                <th>Colores</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <div id="productUpdateFormContainer" style="display: none;">
+                                <h3>Actualizar Producto</h3>
+                                <form id="productUpdateForm">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" id="nombre" name="nombre" required>
+                                    
+                                    <label for="descripcion">Descripción:</label>
+                                    <input type="text" id="descripcion" name="descripcion">
+                            
+                                    <label for="precio">Precio:</label>
+                                    <input type="number" id="precio" name="precio" step="0.01" required>
+                            
+                                    <label for="stock">Stock:</label>
+                                    <input type="number" id="stock" name="stock" required>
+                            
+                                    <label for="categoria">Categoría:</label>
+                                    <input type="text" id="categoria" name="categoria">
+                            
+                                    <label for="marca">Marca:</label>
+                                    <input type="text" id="marca" name="marca">
+                            
+                                    <label for="codigoProducto">Código Producto:</label>
+                                    <input type="text" id="codigoProducto" name="codigoProducto">
+                            
+                                    <label for="garantiaMeses">Garantía (meses):</label>
+                                    <input type="number" id="garantiaMeses" name="garantiaMeses">
+                            
+                                    <label for="coloresDisponibles">Colores Disponibles:</label>
+                                    
+                                    <input type="text" id="coloresDisponibles" name="coloresDisponibles">
+   
+                                    <button type="submit">Confirmar</button>
+                                    <br>
+                                </form>
+                            </div>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    
+    </div>
+</body>
+<footer class="footer">
+    <p>© 2025 Mirror of Kalandra. Todos los derechos reservados.</p>
+</footer>
+</html>

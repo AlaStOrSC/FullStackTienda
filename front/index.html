@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror of Kalandra - Iniciar Sesión</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <script type="module" src="js/login.js" defer></script>
+</head>
+<body class="body__login">
+    <div class="login">
+        <img src="images/Login.webp" alt="Mirror of Kalandra Logo" class="login__image">
+        <div class="login__container">
+            <div >
+                <h1 class="login__title">Mirror of Kalandra</h1>
+                <p class="login__subtitle">Accede a la tienda mágica</p>
+            </div>
+            
+            <form >
+                <div class="login__group">
+                    <label for="email" class="login__label">Email</label>
+                    <input type="email" id="email" class="login__input" placeholder="Ingresa tu email" required>
+                </div>
+                
+                <div class="login__group">
+                    <label for="password" class="login__label">Contraseña</label>
+                    <input type="password" id="password" class="login__input" placeholder="Ingresa tu contraseña" required>
+                </div>
+                
+                <div >
+                    <button type="submit" class="login__button" aria-label="Ingresar">Ingresar</button>
+                    <a href="home.html" class="login__link">Acceder sin cuenta</a>
+                </div>
+            </form>
+        </div>
+        
+        <footer>
+            <nav class="login__nav">
+                <ul class="login__nav-list">
+                    <li ><a href="home.html" class="login__nav-link">Inicio</a>
+                    </li>
+                    <li ><a href="products.html" class="login__nav-link">Productos</a>
+                    </li>
+                    <li ><a href="news.html" class="login__nav-link">Noticias</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+</body>
+</html>

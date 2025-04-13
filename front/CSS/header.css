@@ -1,0 +1,215 @@
+/* ---- HEADER ---- */
+
+.header {
+    background: rgba(50, 30, 20, 0.9);
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    z-index: 10;
+}
+
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+
+}
+
+
+.header__logo img {
+    max-width: 60%;
+    height: auto;
+}
+
+.header__checkbox {
+    display: none;
+}
+
+.header__toggle {
+    font-size: 2rem;
+    color: #ffd680;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    text-indent: -9999px; 
+    width: 2rem; 
+    height: 2rem; 
+    margin-right: 1rem;
+  }
+  .header__toggle::before {
+    content: "☰"; 
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 2rem; 
+    text-align: center; 
+    transition: transform 0.3s ease, content 0.3s ease;
+    text-indent: 0; 
+    z-index: 11;
+}
+  
+.header__checkbox:checked + .header__toggle::before {
+    content: "\f6e8"; 
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    transform: rotate(360deg);
+    animation: shinehat 2s infinite;                                             /* ---- Animacion del sombrero en el menu hamburguesa ---- */
+}
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -50%;   
+    width: 50%;   
+    height: 100vh;
+    background: rgba(50, 30, 20, 0.95);
+    transition: right 0.5s ease;
+    z-index: 9;
+    padding: 2rem 0;
+  }
+  .header__checkbox:checked ~ .header__nav {
+    right: 0;  
+  }
+
+.header__checkbox:checked ~ .header__nav {
+    display: block;
+    opacity: 1;
+}
+
+.header__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 30% 0 0 0;
+}
+
+.header__nav-item {
+    padding: 12px ;
+  
+}
+.header__nav-item:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 215, 0, 0.5);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+.header__nav-link {
+    text-decoration: none;
+    color: #e0c097;
+    font-size: 1.5rem;
+    display: block;
+    transition: color 0.3s;
+}
+
+.header__nav-link:hover {
+    color: #ffd680;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.9);
+}
+/* ---- KEYFRAMES ---- */
+
+@keyframes shinehat {
+    0%, 100% {
+      text-shadow: 0 0 5px #ffd680, 0 0 10px #ffd680;
+    }
+    50% {
+      text-shadow: 0 0 20px #ffd680, 0 0 30px #ffd680;
+    }
+  }
+
+/* -------  QUERIES ---------- */
+
+@media (min-width: 768px) {
+   
+    .header__logo img {
+        max-width: 350px;
+        height: auto;
+    }
+ 
+}
+@media (min-width: 1024px) {
+    .header__toggle {
+        display: none;
+    }
+
+    .header__container {
+        max-width: 1800px;
+    }
+
+    .header__nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header__nav-list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: clamp(10px,0.5vw,30px);
+        margin: 0;
+        padding: 0;
+    }
+
+    .header__nav-item {
+        position: relative;
+        list-style: none;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.5s;
+        border-bottom: none !important;
+    }
+
+     
+
+    .header__nav-link {
+        position: relative;
+        text-decoration: none !important;
+        border-bottom: none !important;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .header__nav-link i {
+        transition: 0.5s;
+    }
+
+    .header__nav-item:hover .header__nav-link i {
+        transform: translateY(-40%);
+    }
+
+    .header__nav-link span {
+        position: absolute;
+        font-family: 'Cinzel', serif;
+        font-size: 1.4rem;
+        opacity: 0;
+        transition: 0.5s;
+        transform: scale(0) translateY(200%);
+    }
+
+    .header__nav-item:hover .header__nav-link span {
+        opacity: 1;
+        transform: scale(1) translateY(100%);
+    }
+
+ 
+}
