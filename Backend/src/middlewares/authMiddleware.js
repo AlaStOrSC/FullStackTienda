@@ -20,4 +20,5 @@ const verifyToken = (rolesPermitidos = []) => (req, res, next) => {
 };
 
 
+
 module.exports = { verifyToken };

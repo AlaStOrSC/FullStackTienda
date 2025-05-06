@@ -102,28 +102,6 @@ createUser: [
       }
     },
   ],
-  verifyToken: async (req, res) => {
-    try {
-      let token = req.cookies.token
-  
-      if (!token && req.headers.authorization) {
-        const authHeader = req.headers.authorization
-        if (authHeader.startsWith("Bearer ")) {
-          token = authHeader.substring(7)
-        }
-      }
-  
-      if (!token) {
-        return res.status(401).json({ authenticated: false, message: "No se ha proporcionado token" })
-      }
-  
-  
-      res.status(200).json({ authenticated: true })
-    } catch (error) {
-      console.error("Error al verificar token:", error)
-      res.status(401).json({ authenticated: false, message: error.message })
-    }
-  },
   logoutUser: async (req, res) => {
     try {
       res.cookie('token', '', { 

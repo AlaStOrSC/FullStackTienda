@@ -20,17 +20,13 @@ async function getUserById(id) {
 
 async function insertUser(userData) {
   try {
-    console.log('Datos recibidos en el servicio:', userData); 
     const { email, password, role, ...restoDatos } = userData;
 
     const existingUser = await Usuario.findOne({ email });
     if (existingUser) {
       throw new Error('El email ya está en uso, pilla otro');
     }
-
-    console.log('Hashing password...');
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log('Password hashed:', hashedPassword);
 
     const usuario = new Usuario({
       ...restoDatos,
@@ -39,9 +35,7 @@ async function insertUser(userData) {
       role: role || 'usuario',
     });
 
-    console.log('Guardando usuario en la base de datos...');
     const response = await usuario.save();
-    console.log('Usuario guardado:', response);
     return response;
   } catch (err) {
     console.error('Error al crear usuario en el servicio:', err); 

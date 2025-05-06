@@ -45,7 +45,7 @@ app.use('/api', apiLimiter);
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 
-app.use('/api/*', notFoundHandler);
+app.use('/api', notFoundHandler);
 
 app.use(errorHandler);
 
